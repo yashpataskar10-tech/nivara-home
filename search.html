@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Search Results | Nivara Home</title>
+  <meta name="description" content="Search the Nivara Home catalogue for wall décor, lighting, home accessories and soft furnishings." />
+  <meta name="robots" content="noindex" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Petrona:wght@500;600;700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div id="site-header"></div>
+
+  <main>
+    <div class="wrap search-hero">
+      <h1 id="search-heading">Search</h1>
+      <form action="search.html" method="get" role="search">
+        <label class="hidden" for="search-input">Search products</label>
+        <input id="search-input" name="q" type="text" placeholder="Try “lamp”, “vase”, or “wall art”..." />
+        <button type="submit">Search</button>
+      </form>
+    </div>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="product-grid" id="search-grid"></div>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="js/products-data.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    renderHeader("home");
+    renderFooter();
+
+    const params = new URLSearchParams(window.location.search);
+    const query = params.get("q") || "";
+    document.getElementById("search-input").value = query;
+
+    if (query.trim()) {
+      const results = searchProducts(query);
+      document.getElementById("search-heading").textContent = `Results for “${query}”`;
+      if (results.length === 0) {
+        document.getElementById("search-grid").innerHTML =
+          `<div class="empty-state"><p>No products matched “${query}”. Try a different word, or browse a category from the menu above.</p></div>`;
+      } else {
+        renderProductGrid("search-grid", results);
+      }
+    } else {
+      document.getElementById("search-grid").innerHTML =
+        `<div class="empty-state"><p>Enter a search term above — try “lamp”, “vase”, “rug” or “wall art”.</p></div>`;
+    }
+  </script>
+</body>
+</html>

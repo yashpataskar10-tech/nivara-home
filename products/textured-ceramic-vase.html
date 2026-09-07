@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Buy Textured Ceramic Vase Online — ₹899 | Nivara Home</title>
+  <meta name="description" content="A hand-textured ceramic vase in an earthy glaze, equally at home holding fresh stems or standing on its own as a shelf accent. ₹899. Part of the Nivara Home Home Accessories collection." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Petrona:wght@500;600;700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+  <div id="site-header"></div>
+
+  <main>
+    <div class="wrap" style="padding-top: 1.5rem;">
+      <p class="breadcrumb">
+        <a href="../index.html">Home</a> /
+        <a href="../home-accessories.html">Home Accessories</a> /
+        Textured Ceramic Vase
+      </p>
+    </div>
+
+    <section class="section" style="padding-top: 0.5rem;">
+      <div class="wrap product-detail">
+        <div class="main-image">
+          <img id="product-image" src="../images/products/nh-a01.jpg" alt="Textured Ceramic Vase" />
+        </div>
+
+        <div class="product-info">
+          <span class="category-tag">Home Accessories</span>
+          <h1>Textured Ceramic Vase</h1>
+          <p class="price">₹899</p>
+          <p class="short-desc">A hand-textured ceramic vase in an earthy glaze, equally at home holding fresh stems or standing on its own as a shelf accent.</p>
+
+          <ul class="benefit-list">
+            <li>Textured finish catches light and adds tactile interest</li>
+<li>Works with fresh flowers, dried stems, or empty as a sculptural object</li>
+<li>Wide base keeps it stable on open shelving</li>
+          </ul>
+
+          <div class="qty-row">
+            <div class="qty-selector">
+              <button type="button" id="qty-minus" aria-label="Decrease quantity">−</button>
+              <input type="text" id="qty-input" value="1" readonly aria-label="Quantity" />
+              <button type="button" id="qty-plus" aria-label="Increase quantity">+</button>
+            </div>
+          </div>
+
+          <div class="product-actions">
+            <button class="btn btn-outline" id="add-to-cart-btn" type="button">Add to Cart</button>
+            <a class="btn btn-primary" id="buy-now-btn" href="../checkout.html">Buy Now</a>
+          </div>
+
+          <div class="info-accordion">
+            <details open>
+              <summary>Specifications</summary>
+              <div class="accordion-body">
+                <table class="spec-table">
+                  <tbody>
+                    <tr><td>Material</td><td>Glazed ceramic</td></tr>
+<tr><td>Height</td><td>24cm</td></tr>
+<tr><td>Opening Diameter</td><td>8cm</td></tr>
+<tr><td>Water-safe</td><td>Yes</td></tr>
+<tr><td>Care</td><td>Hand wash, avoid abrasive scrubbers</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </details>
+            <details>
+              <summary>Shipping Information</summary>
+              <div class="accordion-body"><p>Orders are typically dispatched within 2–4 business days. Delivery timelines vary by location and will be confirmed at checkout in a full version of this store.</p></div>
+            </details>
+            <details>
+              <summary>Returns Information</summary>
+              <div class="accordion-body"><p>This is a prototype store — no real orders are processed. In a live version, Nivara Home would offer a standard return window on unused items in original packaging.</p></div>
+            </details>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--alt related-products">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>You May Also Like</h2>
+          <p>More from the Home Accessories collection.</p>
+        </div>
+        <div class="product-grid" id="related-grid"></div>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="../js/products-data.js"></script>
+  <script src="../js/cart.js"></script>
+  <script src="../js/main.js"></script>
+  <script>
+    renderHeader("home-accessories");
+    renderFooter();
+
+    const SKU = "NH-A01";
+    const product = PRODUCTS.find((p) => p.sku === SKU);
+
+    // Related-product links are rendered one directory up from /products/,
+    // so patch the card markup's relative paths for this page.
+    function relatedCardHTML(p) {
+      return productCardHTML(p)
+        .replace(/href="products\//g, 'href="../products/')
+        .replace(/src="images\//g, 'src="../images/');
+    }
+    document.getElementById("related-grid").innerHTML = getRelatedProducts(product).map(relatedCardHTML).join("");
+
+    // Product image + fallback placeholder
+    const img = document.getElementById("product-image");
+    bindImageFallback(img, product.name, product.category);
+
+    // Quantity selector
+    const qtyInput = document.getElementById("qty-input");
+    document.getElementById("qty-minus").addEventListener("click", () => {
+      qtyInput.value = Math.max(1, parseInt(qtyInput.value, 10) - 1);
+    });
+    document.getElementById("qty-plus").addEventListener("click", () => {
+      qtyInput.value = parseInt(qtyInput.value, 10) + 1;
+    });
+
+    // Add to cart
+    document.getElementById("add-to-cart-btn").addEventListener("click", function () {
+      addToCart(SKU, parseInt(qtyInput.value, 10));
+      this.textContent = "Added to Cart";
+      setTimeout(() => { this.textContent = "Add to Cart"; }, 1200);
+    });
+
+    // Buy Now — add to cart, then go straight to checkout
+    document.getElementById("buy-now-btn").addEventListener("click", function (e) {
+      e.preventDefault();
+      addToCart(SKU, parseInt(qtyInput.value, 10));
+      window.location.href = "../checkout.html";
+    });
+
+    // view_item fires once per page load
+    trackEvent("view_item", { sku: product.sku, name: product.name, price: product.price });
+  </script>
+</body>
+</html>

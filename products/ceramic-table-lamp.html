@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Buy Ceramic Table Lamp Online — ₹1,899 | Nivara Home</title>
+  <meta name="description" content="A rounded ceramic base paired with a natural linen shade, giving off warm, soft light suited to bedside tables and reading corners. ₹1,899. Part of the Nivara Home Lighting collection." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Petrona:wght@500;600;700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+  <div id="site-header"></div>
+
+  <main>
+    <div class="wrap" style="padding-top: 1.5rem;">
+      <p class="breadcrumb">
+        <a href="../index.html">Home</a> /
+        <a href="../lighting.html">Lighting</a> /
+        Ceramic Table Lamp
+      </p>
+    </div>
+
+    <section class="section" style="padding-top: 0.5rem;">
+      <div class="wrap product-detail">
+        <div class="main-image">
+          <img id="product-image" src="../images/products/nh-l01.jpg" alt="Ceramic Table Lamp" />
+        </div>
+
+        <div class="product-info">
+          <span class="category-tag">Lighting</span>
+          <h1>Ceramic Table Lamp</h1>
+          <p class="price">₹1,899</p>
+          <p class="short-desc">A rounded ceramic base paired with a natural linen shade, giving off warm, soft light suited to bedside tables and reading corners.</p>
+
+          <ul class="benefit-list">
+            <li>Warm, diffused light — easy on the eyes in the evening</li>
+<li>Ceramic base adds weight and a tactile, handmade feel</li>
+<li>Compact footprint suits nightstands and console tables</li>
+          </ul>
+
+          <div class="qty-row">
+            <div class="qty-selector">
+              <button type="button" id="qty-minus" aria-label="Decrease quantity">−</button>
+              <input type="text" id="qty-input" value="1" readonly aria-label="Quantity" />
+              <button type="button" id="qty-plus" aria-label="Increase quantity">+</button>
+            </div>
+          </div>
+
+          <div class="product-actions">
+            <button class="btn btn-outline" id="add-to-cart-btn" type="button">Add to Cart</button>
+            <a class="btn btn-primary" id="buy-now-btn" href="../checkout.html">Buy Now</a>
+          </div>
+
+          <div class="info-accordion">
+            <details open>
+              <summary>Specifications</summary>
+              <div class="accordion-body">
+                <table class="spec-table">
+                  <tbody>
+                    <tr><td>Material</td><td>Ceramic base, linen-blend shade</td></tr>
+<tr><td>Height</td><td>38cm</td></tr>
+<tr><td>Bulb</td><td>E27 base, bulb not included</td></tr>
+<tr><td>Cord Length</td><td>1.8m with in-line switch</td></tr>
+<tr><td>Care</td><td>Wipe base with a dry cloth; spot-clean shade</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </details>
+            <details>
+              <summary>Shipping Information</summary>
+              <div class="accordion-body"><p>Orders are typically dispatched within 2–4 business days. Delivery timelines vary by location and will be confirmed at checkout in a full version of this store.</p></div>
+            </details>
+            <details>
+              <summary>Returns Information</summary>
+              <div class="accordion-body"><p>This is a prototype store — no real orders are processed. In a live version, Nivara Home would offer a standard return window on unused items in original packaging.</p></div>
+            </details>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--alt related-products">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>You May Also Like</h2>
+          <p>More from the Lighting collection.</p>
+        </div>
+        <div class="product-grid" id="related-grid"></div>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="../js/products-data.js"></script>
+  <script src="../js/cart.js"></script>
+  <script src="../js/main.js"></script>
+  <script>
+    renderHeader("lighting");
+    renderFooter();
+
+    const SKU = "NH-L01";
+    const product = PRODUCTS.find((p) => p.sku === SKU);
+
+    // Related-product links are rendered one directory up from /products/,
+    // so patch the card markup's relative paths for this page.
+    function relatedCardHTML(p) {
+      return productCardHTML(p)
+        .replace(/href="products\//g, 'href="../products/')
+        .replace(/src="images\//g, 'src="../images/');
+    }
+    document.getElementById("related-grid").innerHTML = getRelatedProducts(product).map(relatedCardHTML).join("");
+
+    // Product image + fallback placeholder
+    const img = document.getElementById("product-image");
+    bindImageFallback(img, product.name, product.category);
+
+    // Quantity selector
+    const qtyInput = document.getElementById("qty-input");
+    document.getElementById("qty-minus").addEventListener("click", () => {
+      qtyInput.value = Math.max(1, parseInt(qtyInput.value, 10) - 1);
+    });
+    document.getElementById("qty-plus").addEventListener("click", () => {
+      qtyInput.value = parseInt(qtyInput.value, 10) + 1;
+    });
+
+    // Add to cart
+    document.getElementById("add-to-cart-btn").addEventListener("click", function () {
+      addToCart(SKU, parseInt(qtyInput.value, 10));
+      this.textContent = "Added to Cart";
+      setTimeout(() => { this.textContent = "Add to Cart"; }, 1200);
+    });
+
+    // Buy Now — add to cart, then go straight to checkout
+    document.getElementById("buy-now-btn").addEventListener("click", function (e) {
+      e.preventDefault();
+      addToCart(SKU, parseInt(qtyInput.value, 10));
+      window.location.href = "../checkout.html";
+    });
+
+    // view_item fires once per page load
+    trackEvent("view_item", { sku: product.sku, name: product.name, price: product.price });
+  </script>
+</body>
+</html>

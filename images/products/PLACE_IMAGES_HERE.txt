@@ -1,0 +1,28 @@
+Real product photography goes in this folder.
+
+Each product in js/products-data.js points at a specific filename here,
+matching its SKU in lowercase, e.g.:
+
+  NH-W01  ->  images/products/nh-w01.jpg
+  NH-W02  ->  images/products/nh-w02.jpg
+  NH-W03  ->  images/products/nh-w03.jpg
+  NH-L01  ->  images/products/nh-l01.jpg
+  NH-L02  ->  images/products/nh-l02.jpg
+  NH-A01  ->  images/products/nh-a01.jpg
+  NH-A02  ->  images/products/nh-a02.jpg
+  NH-A03  ->  images/products/nh-a03.jpg
+  NH-S01  ->  images/products/nh-s01.jpg
+  NH-S02  ->  images/products/nh-s02.jpg
+
+Recommended: square photos, at least 1000x1000px, on a plain or
+lightly styled background consistent with the warm, minimal brand
+look described in the design brief.
+
+Until a real photo is added, every page automatically falls back to
+a generated placeholder graphic (see placeholderImage() in
+js/main.js), so the site never shows a broken-image icon — you can
+add photos one at a time without breaking anything.
+
+If you'd also like a lifestyle/hero photo, add one and update the
+`src` set in the inline scripts of index.html (#hero-image) and
+(#lifestyle-image).

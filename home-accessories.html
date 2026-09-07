@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Home Accessories Online — Vases, Planters & Candle Holders | Nivara Home</title>
+  <meta name="description" content="Shop ceramic vases, indoor planter sets and candle holders from ₹799. Small, considered accessories to style shelves, consoles and windowsills." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Petrona:wght@500;600;700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div id="site-header"></div>
+
+  <main>
+    <div class="page-header">
+      <div class="wrap">
+        <p class="breadcrumb"><a href="index.html">Home</a> / Home Accessories</p>
+        <h1>Home Accessories for Everyday Styling</h1>
+        <p>Vases, planters and candle holders sized for shelves, consoles and windowsills — the small pieces that finish a room.</p>
+      </div>
+    </div>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="category-toolbar">
+          <span class="result-count" id="result-count"></span>
+          <select id="sort-select" aria-label="Sort products">
+            <option value="featured">Sort: Featured</option>
+            <option value="price-asc">Price: Low to High</option>
+            <option value="price-desc">Price: High to Low</option>
+            <option value="name-asc">Name: A–Z</option>
+          </select>
+        </div>
+        <div class="product-grid" id="category-grid"></div>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="js/products-data.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    renderHeader("home-accessories");
+    renderFooter();
+    initCategoryPage("Home Accessories", "category-grid", "sort-select", "result-count");
+  </script>
+</body>
+</html>

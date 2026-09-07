@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Modern Home Décor Online in India | Nivara Home</title>
+  <meta name="description" content="Modern, warm and minimal home décor for young professionals, couples and new homeowners in India. Explore wall art, lighting, accessories and soft furnishings from ₹799." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Petrona:wght@500;600;700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div id="site-header"></div>
+
+  <main>
+    <div class="page-header">
+      <div class="wrap">
+        <p class="breadcrumb"><a href="index.html">Home</a> / Modern Home Décor</p>
+        <h1>Modern Home Décor, Made for Everyday Living</h1>
+        <p>Nivara Home brings together wall art, lighting, accessories and soft furnishings in one warm, considered palette — built for apartments, rentals and first homes across India, from ₹799 to ₹2,999.</p>
+        <div class="hero-ctas" style="margin: 1.25rem 0 0;">
+          <a class="btn btn-primary" href="wall-decor.html">Shop Wall Décor</a>
+          <a class="btn btn-secondary" href="lighting.html">Shop Lighting</a>
+        </div>
+      </div>
+    </div>
+
+    <section class="section" aria-labelledby="collections-heading">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 id="collections-heading">Four Collections, One Look</h2>
+          <p>Start with a category, or browse a mix of pieces from across the site below.</p>
+        </div>
+        <div class="category-grid" id="category-tiles"></div>
+      </div>
+    </section>
+
+    <section class="section section--alt" aria-labelledby="picks-heading">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 id="picks-heading">A Few Places to Start</h2>
+          <p>One popular pick from each collection.</p>
+        </div>
+        <div class="product-grid" id="picks-grid"></div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="approach-heading">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 id="approach-heading">How Nivara Home Approaches Décor</h2>
+        </div>
+        <div class="feature-grid">
+          <div class="feature">
+            <h3>Warm over cold</h3>
+            <p>Neutral, earthy tones instead of stark whites and greys — spaces that feel lived-in, not staged.</p>
+          </div>
+          <div class="feature">
+            <h3>Minimal over busy</h3>
+            <p>A small, coherent catalogue rather than an overwhelming one — every piece is meant to be used together.</p>
+          </div>
+          <div class="feature">
+            <h3>Attainable over aspirational</h3>
+            <p>Prices between ₹799 and ₹2,999, so a full room refresh stays realistic.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="js/products-data.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    renderHeader("home");
+    renderFooter();
+    renderCategoryTiles("category-tiles");
+    renderProductGrid("picks-grid", productsBySku(["NH-W01", "NH-L01", "NH-A01", "NH-S02"]));
+  </script>
+</body>
+</html>

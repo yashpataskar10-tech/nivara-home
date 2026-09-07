@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nivara Home — Modern Home Décor for Everyday Spaces | India</title>
+  <meta name="description" content="Nivara Home is a modern home décor brand for young professionals, couples and new homeowners in India. Shop wall art, lighting, planters, cushions and rugs from ₹799." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Petrona:wght@500;600;700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div id="site-header"></div>
+
+  <main>
+    <section class="hero">
+      <div class="wrap">
+        <div class="hero-copy">
+          <p class="eyebrow">Nivara Home</p>
+          <h1>Make space feel like home.</h1>
+          <p class="lead">Thoughtfully designed décor for beautiful everyday spaces.</p>
+          <div class="hero-ctas">
+            <a class="btn btn-primary" href="wall-decor.html">Shop Home Décor</a>
+            <a class="btn btn-secondary" href="#best-sellers">Explore Best Sellers</a>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <img id="hero-image" alt="A warm, minimally styled living room corner with Nivara Home décor" />
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="shop-by-category">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 id="shop-by-category">Shop by Category</h2>
+          <p>Four collections, one consistent look — pick a starting point for your space.</p>
+        </div>
+        <div class="category-grid" id="category-tiles"></div>
+      </div>
+    </section>
+
+    <section class="section section--alt" aria-labelledby="featured-products">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 id="featured-products">Featured Products</h2>
+          <p>A first look at pieces from across the collection.</p>
+        </div>
+        <div class="product-grid" id="featured-grid"></div>
+      </div>
+    </section>
+
+    <section class="section" id="best-sellers" aria-labelledby="best-sellers-heading">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 id="best-sellers-heading">Best Sellers</h2>
+          <p>The pieces people come back for.</p>
+        </div>
+        <div class="product-grid" id="bestseller-grid"></div>
+      </div>
+    </section>
+
+    <section class="section section--alt" aria-labelledby="why-nivara">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 id="why-nivara">Why Nivara Home</h2>
+          <p>What we design around, every time.</p>
+        </div>
+        <div class="feature-grid">
+          <div class="feature">
+            <h3>Designed for real homes</h3>
+            <p>Pieces sized and priced for apartments, first homes and rentals — not showrooms.</p>
+          </div>
+          <div class="feature">
+            <h3>A considered palette</h3>
+            <p>Every product is chosen to sit together, so building a room doesn't mean guesswork.</p>
+          </div>
+          <div class="feature">
+            <h3>Straightforward pricing</h3>
+            <p>Clear, accessible pricing from ₹799 to ₹2,999 — no hidden mark-ups.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="lifestyle" aria-labelledby="lifestyle-heading">
+      <div class="lifestyle-visual">
+        <img id="lifestyle-image" alt="A softly lit reading corner styled with Nivara Home textiles and lighting" />
+      </div>
+      <div class="lifestyle-copy">
+        <h2 id="lifestyle-heading">Everyday spaces, considered</h2>
+        <p>Nivara Home is built around the corners of a home people actually live in — a reading chair, a console table, a windowsill. Small, considered pieces that add up to a space that feels put-together.</p>
+        <a class="btn btn-secondary" href="modern-home-decor.html">Read the Style Guide</a>
+      </div>
+    </section>
+
+    <section class="newsletter" id="newsletter" aria-labelledby="newsletter-heading">
+      <div class="wrap">
+        <div>
+          <h2 id="newsletter-heading">Stay in the loop</h2>
+          <p>New arrivals and styling ideas, occasionally — never spam.</p>
+        </div>
+        <form class="newsletter-form" id="newsletter-form">
+          <label class="hidden" for="newsletter-email">Email address</label>
+          <input id="newsletter-email" type="email" required placeholder="you@example.com" />
+          <button class="btn btn-accent" type="submit">Subscribe</button>
+          <p class="newsletter-note"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="js/products-data.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    renderHeader("home");
+    renderFooter();
+    renderCategoryTiles("category-tiles");
+    renderProductGrid("featured-grid", productsBySku(["NH-W01", "NH-L01", "NH-A02", "NH-S02"]));
+    renderProductGrid("bestseller-grid", productsBySku(["NH-A01", "NH-L02", "NH-W02", "NH-S01"]));
+
+    const hero = document.getElementById("hero-image");
+    hero.src = "images/home-hero.png";
+    const lifestyle = document.getElementById("lifestyle-image");
+    lifestyle.src = placeholderImage("Nivara Home", "Soft Furnishings");
+  </script>
+</body>
+</html>

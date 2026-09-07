@@ -1,0 +1,7 @@
+User-agent: *
+Disallow: /cart.html
+Disallow: /checkout.html
+Disallow: /search.html
+Allow: /
+
+Sitemap: https://www.nivarahome.example/sitemap.xml
